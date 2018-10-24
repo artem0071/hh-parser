@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ItemResource;
 use App\Jobs\CatalogUpdating;
 use App\Models\Item;
-use App\Services\Parser\Parser;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -26,7 +25,10 @@ class ItemController extends Controller
             'q' => 'required|string|min:1'
         ]);
 
-        $items = Item::query()->where('title', 'like', '%' . $validated['q'] . '%')->get();
+        $items = Item::query()
+            ->where('title', 'like', '%' . $validated['q'] . '%')
+            ->where('description', 'like', '%' . $validated['q'] . '%')
+            ->paginate();
 
         return ItemResource::collection($items);
     }
