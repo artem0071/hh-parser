@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ItemResource;
 use App\Jobs\CatalogUpdating;
 use App\Models\Item;
-use App\Services\Parser\ParserArmprodukt;
-use App\Services\Parser\ParserLiga;
-use App\Services\Parser\ParserOzone;
-use App\Services\Parser\ParserTrenazhery;
+use App\Services\Parser\Parser;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller

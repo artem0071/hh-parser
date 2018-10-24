@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Services\Parser\Parser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -29,10 +30,6 @@ class CatalogUpdating implements ShouldQueue
      */
     public function handle()
     {
-        $parsers = config('parser.sources');
-
-        foreach ($parsers as $parser => $sources) {
-            (new $parser)->toParse($sources);
-        }
+        Parser::startAllParsers();
     }
 }
