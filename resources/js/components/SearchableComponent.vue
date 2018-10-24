@@ -21,7 +21,7 @@
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li class="page-item" :class="pagination.current === 1 ? 'disabled' : ''">
-                                <a @click.prevent="getItems(pagination.current--)" class="page-link" href="#">Previous</a>
+                                <a @click.prevent="getItems(pagination.current - 1)" class="page-link" href="#">Previous</a>
                             </li>
                             <li class="page-item" :class="pagination.current === pagination.last ? 'disabled' : ''">
                                 <a @click.prevent="getItems(pagination.current + 1)" class="page-link" href="#">Next</a>
