@@ -33,9 +33,11 @@ class ItemController extends Controller
         return ItemResource::collection($items);
     }
 
-    public function show(Request $request)
+    public function show($id)
     {
-        return view('item');
+        $item = Item::findOrFail($id);
+
+        return view('item', compact('item'));
     }
 
     public function updateCatalog()

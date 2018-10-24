@@ -2,6 +2,6 @@
 
 @section('content')
 
-    this is an item
+    <item-component :full="true" :item="{{$item->toJson()}}"></item-component>
 
 @endsection

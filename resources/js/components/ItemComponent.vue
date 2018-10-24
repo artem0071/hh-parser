@@ -2,11 +2,13 @@
     <div class="card">
         <img class="card-img-top" :src="item.image || '/images/placeholder.png'" alt="Item image">
         <div class="card-body">
-            <h5 class="card-title">
-                <text-highlight :queries="[query]">
-                    {{ item.title }}
-                </text-highlight>
-            </h5>
+            <a :href="`/items/${item.id}`">
+                <h5 class="card-title">
+                    <text-highlight :queries="[query]">
+                        {{ item.title }}
+                    </text-highlight>
+                </h5>
+            </a>
             <p class="card-text">
                 <text-highlight :queries="[query]">
                     {{ item.description }}
@@ -17,6 +19,9 @@
             <li class="list-group-item">Цена: {{ item.price }}</li>
             <li class="list-group-item">
                 <a :href="item.url">Ссылка</a>
+            </li>
+            <li v-if="full" class="list-group-item">
+                <a href="/">На главную</a>
             </li>
         </ul>
     </div>
